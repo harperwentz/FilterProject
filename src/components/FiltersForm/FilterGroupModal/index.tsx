@@ -13,14 +13,16 @@ import { FormInputObject } from '../FilterFormsStore/types';
 
 type ModalPropTypes = {
     modalObjectArray: FormInputObject[]; //category and options
-    formStateObjectArray: boolean;
 }
 
 
 
 const FilterGroupModal = (props: ModalPropTypes) => {
+    const isOpen = useSelector((state) => state.modal.isOpen);
 
     const dispatch = useDispatch();
+    if (!isOpen) 
+      return;
 
     return (
       //<Provider store={store}>
