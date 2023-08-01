@@ -7,9 +7,10 @@ import './App.css';
 import LineItem from './components/LineItem'
 import { movies } from './movieData'
 import { Movie } from './movieData';
-import InputGroup from './components/FiltersForm/InputGroup';
+import FilterGroupModal from './components/FiltersForm/FilterGroupModal';
 import { Provider } from 'react-redux';
 import store from './components/FiltersForm/FilterFormsStore/filterform-store';
+
 
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
   <Provider store={store}>
     <div>
     <div>
-      <InputGroup category="Category"/>
+      <FilterGroupModal >
+
+      </FilterGroupModal>
     </div>
     <div>
       {movies.map((movie: Movie) : ReactElement => (

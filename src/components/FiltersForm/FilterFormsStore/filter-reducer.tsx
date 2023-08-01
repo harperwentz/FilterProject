@@ -50,12 +50,14 @@ const filterReducer = (
                 category,
                 options: {...filterInitialState, ...optionValues},
             }
+            console.log(newCategoryState);
             return {
                 ...state,
                 [category]: newCategoryState,
             };
 
         case SET_CATEGORY:
+            console.log(category);
             return {
                 ...state, 
                 [category]: {
@@ -82,7 +84,8 @@ const filterReducer = (
 
             // calculate numOptionsSelected for the category (calculate the number of options toggled to true)
             const numOptionsSelected = Object.values(updatedOptions).filter((value)  => value === true).length;
-
+            console.log(numOptionsSelected);
+            console.log(updatedState);
             return {
                 ...updatedState, 
                 [category]: {
