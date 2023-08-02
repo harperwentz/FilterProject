@@ -1,5 +1,5 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import type { RootState, AppDispatch } from '../state/redux/filterform-store'
+import type { RootState, AppDispatch } from '../state/FiltersFormStore/filterform-store'
 
 // Use throughout your filters app instead of plain `useDispatch` and `useSelector`
 type DispatchFunc = () => AppDispatch

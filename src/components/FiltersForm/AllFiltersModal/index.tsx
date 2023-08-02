@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react';
 import CheckBox  from '../CheckBox';
 import {Form, Button, ModalDialog } from '@edx/paragon';
 import { useFiltersSelector, useFiltersDispatch } from '../../../hooks/hooks';
-import { toggleModal, setModalCategory } from '../../../state/redux/modal/modal-actions';
-import { addCategories, setCategory, toggleOption, clearForm } from '../../../state/redux/filters/filter-actions';
+import { toggleModal, setModalCategory } from '../../../state/FiltersFormStore/modal/modal-actions';
+import { addCategories, setCategory, toggleOption, clearForm } from '../../../state/FiltersFormStore/filters/filter-actions';
 
 type ModalPropTypes = {
     // modalObjectArray: FormInputObject[]; //category and options

@@ -3,9 +3,9 @@ import { ReactElement } from 'react';
 import './App.css';
 import { movies } from './movieData'
 import { Movie } from './movieData';
-import FilterGroupModal from './components/FiltersForm/AllFiltersModal';
+import AllFiltersModal from './components/FiltersForm/AllFiltersModal';
 import { Provider } from 'react-redux';
-import store from './state/redux/filterform-store';
+import store from './state/FiltersFormStore/filterform-store';
 
 
 
@@ -14,7 +14,7 @@ function App() {
   <Provider store={store}>
     <div>
     <div>
-      <FilterGroupModal />
+      <AllFiltersModal />
     </div>
     <div>
       {movies.map((movie: Movie): ReactElement => (
