@@ -3,17 +3,17 @@ import { FILTER_ACTION_TYPES } from './filter-types';
 
 
 export const addCategories = createAction<{ category: string; initialOptions: [] }>(
-    'ADD_CATEGORIES'
+    FILTER_ACTION_TYPES.ADD_CATEGORIES,
 );
   
 export const toggleOption = createAction<{category: string; option: string}> (
-    'TOGGLE_OPTION',
+    FILTER_ACTION_TYPES.TOGGLE_OPTION,
 );
   
 export const setCategory = createAction<{category: string}> (
-    'SET_CATEGORY'
+    FILTER_ACTION_TYPES.SET_CATEGORY,
 );
 
 export const clearForm = createAction<{}> (
-    'CLEAR_FORM'
+    FILTER_ACTION_TYPES.CLEAR_FORM,
 );

@@ -6,7 +6,7 @@ import { filter } from 'lodash';
 const filterInitialStateTemplate = {
     category: '',
     numOptionsSelected: 0,
-    //categoryNameText: `Select a ${category}`,
+    categoryNameText: '',
     options: {
         option1: false,
         option2: false,
