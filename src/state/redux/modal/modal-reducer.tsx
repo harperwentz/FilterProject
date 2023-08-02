@@ -4,7 +4,7 @@ import { MODAL_ACTION_TYPES } from './modal-types';
 //initial state closed
 const MODAL_INITIAL_STATE = {
   isOpen: false,
-  currenCategory: ''
+  currentCategory: ''
 }
 
 const modalReducer = (
