@@ -1,28 +1,23 @@
 import React from 'react';
 import { ReactElement } from 'react';
-import './App.css';
+import './App.scss';
 import { movies } from './movieData'
 import { Movie } from './movieData';
 import AllFiltersModal from './components/FiltersForm/AllFiltersModal';
 import { Provider } from 'react-redux';
 import store from './state/FiltersFormStore/filterform-store';
-
-
+import SubmitButton from './components/FiltersForm/SubmitButton';
+import Checkbox from './components/FiltersForm/CheckBox';
 
 function App() {
+
+  //Selector Here
   return (
-  <Provider store={store}>
-    <div>
-    <div>
+    <Provider store={store}>
+      <SubmitButton />
+      <Checkbox />
       <AllFiltersModal />
-    </div>
-    <div>
-      {movies.map((movie: Movie): ReactElement => (
-        <h1>{movie.title}</h1>
-        ))}
-    </div>
-    </div>
-  </Provider>
+    </Provider>
   );
 };
 

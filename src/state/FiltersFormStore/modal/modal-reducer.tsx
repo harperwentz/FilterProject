@@ -8,24 +8,24 @@ const MODAL_INITIAL_STATE = {
 }
 
 const modalReducer = (
-    state = MODAL_INITIAL_STATE, 
-    action
+  state = MODAL_INITIAL_STATE,
+  action
 ) => {
 
-    const { type, payload } = action;
-    const { SET_MODAL_CATEGORY, TOGGLE_MODAL } = MODAL_ACTION_TYPES;
+  const { type, payload } = action;
+  const { SET_MODAL_CATEGORY, TOGGLE_MODAL } = MODAL_ACTION_TYPES;
 
-    switch (type) {
+  switch (type) {
 
-      case SET_MODAL_CATEGORY:
-        return {...state, currentCategory: payload};
+    case SET_MODAL_CATEGORY:
+      return { ...state, currentCategory: payload };
 
-      case TOGGLE_MODAL:
-        return {...state, isOpen: !payload.isOpen}
+    case TOGGLE_MODAL:
+      return { ...state, isOpen: !state.isOpen }
 
-      default: 
-        return state;
-    }
+    default:
+      return state;
   }
+}
 
 export default modalReducer;

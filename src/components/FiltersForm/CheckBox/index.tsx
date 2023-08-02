@@ -1,20 +1,25 @@
-import React, { ChangeEventHandler, useState } from 'react';
+import { useFiltersDispatch, useFiltersSelector } from '../../../hooks/hooks';
+import { toggleOption } from "../../../state/FiltersFormStore/filters/filter-actions";
 import './checkbox.css';
 
 interface checkBoxProps {
-    isChecked: boolean;
-    option: string;
-    setChecked: Function;
+  isChecked: boolean;
+  option: string;
+  setChecked: Function;
 }
 
+// Do i need props?
 const Checkbox = (props: checkBoxProps) => {
 
-
+  const dispatch = useFiltersDispatch();
+  const isChecked = useFiltersSelector((state) => state.filters.isChecked);
+  console.log("isChecked", isChecked);
 
   return (
     <div>
-      <input type="checkbox" checked={props.isChecked} onChange={(e) => props.setChecked(!props.isChecked)} />
-      <label>{props.option}</label>
+      <input type="checkbox" checked={isChecked} onChange={() =>
+        dispatch(toggleOption())} />
+      <label>Option</label>
     </div>
   );
 };
