@@ -1,6 +1,4 @@
-import redux from 'redux';
 import { FILTER_ACTION_TYPES } from './filter-types';
-import { filter } from 'lodash';
 
 // Template for what every category will look like 
 const filterInitialStateTemplate = {
@@ -31,13 +29,13 @@ const filterReducer = (
 
     const { ADD_CATEGORIES, SET_CATEGORY, TOGGLE_OPTION, CLEAR_FORM } = FILTER_ACTION_TYPES;
     
-    const { type, payload } = action;
+    const { type } = action;
     
 
     switch (type) {
 
         case ADD_CATEGORIES: // initialize categories here but only if we request to algolia
-            const { category, initialOptions } = payload;
+            const { category, initialOptions } = action?.payload;
             //get the initial options?
 
             const optionValues = Object.keys(initialOptions).reduce((options, optionName) => {
@@ -62,12 +60,12 @@ const filterReducer = (
                 ...state, 
                 [category]: {
                     ...state[category],
-                    category: payload.value,
+                    category: action?.payload.value,
                 }
             };
 
         case TOGGLE_OPTION: {
-            const { category, option } = payload;
+            const { category, option } = action?.payload;
 
             const updatedOptions = {
                 ...state[category].options,
@@ -84,8 +82,8 @@ const filterReducer = (
 
             // calculate numOptionsSelected for the category (calculate the number of options toggled to true)
             const numOptionsSelected = Object.values(updatedOptions).filter((value)  => value === true).length;
-            console.log(numOptionsSelected);
-            console.log(updatedState);
+            console.log("num options selected ", numOptionsSelected);
+            console.log("updated state ", updatedState);
             return {
                 ...updatedState, 
                 [category]: {
@@ -95,8 +93,8 @@ const filterReducer = (
             };
         } 
 
-
         case CLEAR_FORM:
+            return filterInitialState;
       
         default: 
             return state;

@@ -19,11 +19,15 @@ type ModalPropTypes = {
 const AllFiltersModal = (props: ModalPropTypes) => {
   const [currentCategory, setCurrentCategory] = React.useState('filter');
   const isOpen = useFiltersSelector(state => state.modal.isOpen);
+  const dispatch = useFiltersDispatch();
 
   return (
     <AccordionModal
       isOpen={isOpen}
-      onClose={() => {}}
+      onClose={() => { 
+        dispatch(toggleModal()); 
+        dispatch(clearForm());
+      }}
       modalTitle={props.title}
       currentlyOpenAccordionID={currentCategory}
       setOpenAccordionID={setCurrentCategory}

@@ -14,6 +14,6 @@ export const setCategory = createAction<{category: string}> (
     FILTER_ACTION_TYPES.SET_CATEGORY,
 );
 
-export const clearForm = createAction<{}> (
+export const clearForm = createAction(
     FILTER_ACTION_TYPES.CLEAR_FORM,
 );

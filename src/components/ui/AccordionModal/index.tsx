@@ -34,7 +34,6 @@ const AccordionModal = (props: ModalPropTypes) => {
 
       <ModalDialog.Body>
         {props.accordionContentArray.map(accordionContent => {
-          console.log('Currently Open ', props.currentlyOpenAccordionID);
           return (
             <Collapsible.Advanced
               open={accordionContent.id === props.currentlyOpenAccordionID}

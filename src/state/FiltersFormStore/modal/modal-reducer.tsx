@@ -21,7 +21,7 @@ const modalReducer = (
         return {...state, currentCategory: payload};
 
       case TOGGLE_MODAL:
-        return {...state, isOpen: !payload.isOpen}
+        return {...state, isOpen: !state.isOpen}
 
       default: 
         return state;
