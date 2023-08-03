@@ -13,7 +13,11 @@ const FilterList = (props: FilterListPropType) => {
     return (
         <Form onSubmit={event => { event.preventDefault(); }}>
             {props.filters.map((checkBoxGroup: CheckBoxGroupObject): ReactElement =>
-                <InputGroup category={checkBoxGroup.category} options={checkBoxGroup.options} />)}
+                <InputGroup
+                    category={checkBoxGroup.category}
+                    categoryLabel={checkBoxGroup.categoryLabel}
+                    options={checkBoxGroup.options}
+                />)}
         </Form>
     )
 

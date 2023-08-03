@@ -4,6 +4,7 @@ type BooleanObject = {
 
 export type CheckBoxGroupObject = { //inputGroup.tsx
     category: string;
+    categoryLabel: string;
     options: string[];
 }
 

@@ -28,7 +28,8 @@ const AllFilters = () => {
     const formattedFilterData = Object.keys(AllFiltersData).map(category => {
         const singleFilter = {
             category: AllFiltersData[category].category,
-            options: AllFiltersData[category].options
+            categoryLabel: AllFiltersData[category].categoryLabel,
+            options: Object.keys(AllFiltersData[category].options)
         }
         return singleFilter;
     })

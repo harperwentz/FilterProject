@@ -4,6 +4,7 @@ import './checkbox.css';
 import { Form } from '@edx/paragon';
 
 interface checkBoxProps {
+  category: string;
   option: string;
 }
 
@@ -16,7 +17,7 @@ const Checkbox = (props: checkBoxProps) => {
 
   return (
     <Form.Checkbox checked={isChecked} onChange={() =>
-      dispatch(toggleOption())}>
+      dispatch(toggleOption({ category: props.category, option: props.option }))}>
       {props.option}
     </Form.Checkbox>
   );
