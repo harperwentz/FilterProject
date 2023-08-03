@@ -4,7 +4,7 @@ import { FILTER_ACTION_TYPES } from './filter-types';
 const filterInitialStateTemplate = {
     category: '',
     numOptionsSelected: 0,
-    categoryNameText: '',
+    label: '',
     options: {
         option1: false,
         option2: false,
@@ -16,9 +16,9 @@ const filterInitialStateTemplate = {
 // make request to algolia inside the reducer called initializeFilters
 // initializing categories
 const filterInitialState = {
-    partner: {...filterInitialStateTemplate},
-    skills: {...filterInitialStateTemplate},
-    subject: {...filterInitialStateTemplate},
+    partners: [{...filterInitialStateTemplate}],
+    skills: [{...filterInitialStateTemplate}],
+    subjects: [{...filterInitialStateTemplate}],
 }
 
 

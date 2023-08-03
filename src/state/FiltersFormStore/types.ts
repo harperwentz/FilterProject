@@ -5,13 +5,13 @@ type BooleanObject = {
 type SingleFilterType = {
   category: string;
   numOptionsSelected: number;
-  categoryNameText: string;
+  label: string;
   options: BooleanObject;
 };
 
 type AllFiltersType = {
   partner: SingleFilterType;
-  skills: SingleFilterType;
+  skill: SingleFilterType;
   subject: SingleFilterType;
 };
 
@@ -21,6 +21,6 @@ type ModalType = {
 };
 
 export type FiltersReduxStoreType = {
-  filters: AllFiltersType;
+  filter: AllFiltersType;
   modal: ModalType;
 };
