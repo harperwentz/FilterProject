@@ -1,8 +1,8 @@
 type BooleanObject = {
     [key: string]: boolean;
-  };
+};
 
-export type FormInputObject = {
+export type CheckBoxGroupObject = { //inputGroup.tsx
     category: string;
     options: string[];
 }
@@ -13,20 +13,27 @@ export type ModalDataObject = {
     //FilterInputObject: 
 };
 
-type SingleFilterType = {
-    category: string;
+//type for FilterList
+
+export type SingleFilterType = { //For redux use
+    category?: string;
     numOptionsSelected: number;
-    categoryNameText: string;
+    categoryLabel: string;
     options: BooleanObject;
 }
 
-type AllFiltersType = {
+export type AllFiltersType = {
+    availability: SingleFilterType;
+    level: SingleFilterType;
+    language: SingleFilterType;
     partner: SingleFilterType;
-    skills: SingleFilterType;
+    programType: SingleFilterType;
+    skill: SingleFilterType;
     subject: SingleFilterType;
+    learningType: SingleFilterType;
 }
 
-type ModalType = {
+export type ModalType = {
     isOpen: boolean;
     currentCategory: string;
 }

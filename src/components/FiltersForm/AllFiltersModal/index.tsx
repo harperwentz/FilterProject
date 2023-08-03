@@ -1,98 +1,40 @@
-import React, { ReactElement } from 'react';
-import CheckBox from '../CheckBox';
-import { Form, Button, ModalDialog } from '@edx/paragon';
+/*import React, { ReactElement } from 'react';
 import { useFiltersSelector, useFiltersDispatch } from '../../../hooks/hooks';
 import { toggleModal, setModalCategory } from '../../../state/FiltersFormStore/modal/modal-actions';
 import { addCategories, setCategory, toggleOption, clearForm } from '../../../state/FiltersFormStore/filters/filter-actions';
+import AccordionModal from '../../ui/AccordionModal';
 
 type ModalPropTypes = {
-  // modalObjectArray: FormInputObject[]; //category and options
-}
+  title: string;
+};
 
 const AllFiltersModal = (props: ModalPropTypes) => {
-  const isOpen = useFiltersSelector((state) => state.modal.isOpen);
-
-  const dispatch = useFiltersDispatch();
-
-  console.log("is Open", isOpen);
-
-
+  const [currentCategory, setCurrentCategory] = React.useState('filter');
+  const isOpen = useFiltersSelector(state => state.modal.isOpen);
 
   return (
-    <>
-      <ModalDialog
-        title="All filters"
-        isOpen={isOpen}
-        onClose={() =>
-          dispatch(toggleModal())}
-        hasCloseButton
-        isFullscreenOnMobile
-        size="lg"
-      >
-        <ModalDialog.Header>
-          <ModalDialog.Title>
-            All filters
-          </ModalDialog.Title>
-        </ModalDialog.Header>
-
-        <ModalDialog.Body>
-          <h1>
-            Modal
-          </h1>
-          <Form.Group>
-
-            <Form.Label>
-              <h1>
-                Modal
-              </h1>
-              {/* {[].map((modalObject: FormInputObject) : ReactElement => {
-                    return (
-                        <Form.CheckboxSet category={modalObject.category}>
-                            {modalObject.options.map ((option: string) : ReactElement => 
-                            <Form.Checkbox onChange={() => 
-                                {dispatch(toggleOption({category: modalObject.category, option: option}))}}>
-                                {option}
-                            </Form.Checkbox>)}
-                        </Form.CheckboxSet>
-                    )
-                })} */}
-            </Form.Label>
-          </Form.Group>
-
-        </ModalDialog.Body>
-
-      </ModalDialog>
-    </>
+    <AccordionModal
+      isOpen={isOpen}
+      onClose={() => { }}
+      modalTitle={props.title}
+      currentlyOpenAccordionID={currentCategory}
+      setOpenAccordionID={setCurrentCategory}
+      accordionContentArray={[
+        {
+          id: 'filter',
+          title: 'Filter 1',
+          component: <div>filter one content</div>,
+        },
+        {
+          id: 'filter2',
+          title: 'Filter 2',
+          component: <div>filter two content</div>,
+        },
+      ]}
+    />
   );
-}
+};
 
-export default AllFiltersModal;
+export default AllFiltersModal;*/
 
-
-
-
-
-
-
-/*{interface InputGroupProps {
-   category: string; 
-}
-
-const InputGroup: React.FC<InputGroupProps> = ( props ) => {
-
-    const dispatch = useDispatch();
-
-    return (
-      <div className="checkBoxContainer">
-        <h3>{props.category}</h3>
-        <CheckBox onChange={() => 
-            {dispatch(toggleOption({category: modalObject.category, option: option}))}}>
-        </CheckBox>
-        <CheckBox isChecked={isChecked} option="Title" setChecked={setChecked}/>
-        <CheckBox isChecked={isChecked} option="Date" setChecked={setChecked}/>
-        <CheckBox isChecked={isChecked} option="Category" setChecked={setChecked}/>
-      </div>
-    );
-  };
-  
-export default InputGroup;*/
+export default {};

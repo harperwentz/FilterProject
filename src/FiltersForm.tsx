@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import store from './state/FiltersFormStore/filterform-store';
 import SubmitButton from './components/FiltersForm/SubmitButton';
 import Checkbox from './components/FiltersForm/CheckBox';
+import AllFilters from './components/FiltersForm/AllFilters/allfilters';
 
 function App() {
 
@@ -15,8 +16,7 @@ function App() {
   return (
     <Provider store={store}>
       <SubmitButton />
-      <Checkbox />
-      <AllFiltersModal />
+      <AllFilters />
     </Provider>
   );
 };
