@@ -10,39 +10,49 @@ import {
   toggleOption,
   clearForm,
 } from '../../../state/FiltersFormStore/filters/filter-actions';
-import AccordionModal from '../../ui/AccordionModal';
+import { default as Modal } from '../../ui/AccordionModal';
+import Checkbox from '../CheckBox';
 
 type ModalPropTypes = {
   title: string;
 };
 
 const AllFiltersModal = (props: ModalPropTypes) => {
+  const filters = useFiltersSelector(state => state.filters);
   const [currentCategory, setCurrentCategory] = React.useState('filter');
   const isOpen = useFiltersSelector(state => state.modal.isOpen);
   const dispatch = useFiltersDispatch();
 
+  const formattedAccordionData = Object.keys(filters).map((category, index) => {
+
+    const collapsibleData = 
+    return {
+      category: category,
+      options: Object.keys(filters[category].options),
+    };
+  });
+
   return (
-    <AccordionModal
+    <Modal
       isOpen={isOpen}
-      onClose={() => { 
-        dispatch(toggleModal()); 
+      onClose={() => {
+        dispatch(toggleModal());
         dispatch(clearForm());
       }}
       modalTitle={props.title}
       currentlyOpenAccordionID={currentCategory}
       setOpenAccordionID={setCurrentCategory}
-      accordionContentArray={[
-        {
-          id: 'filter',
-          title: 'Filter 1',
-          component: <div>filter one content</div>,
-        },
-        {
-          id: 'filter2',
-          title: 'Filter 2',
-          component: <div>filter two content</div>,
-        },
-      ]}
+      accordionContentArray={formattedModalData.map(filter => {
+        return {
+          id: filter.category,
+          title: filter.category,
+          content: (
+            <div>
+              hi
+            </div>
+          ),
+        };
+      })}
     />
   );
 };

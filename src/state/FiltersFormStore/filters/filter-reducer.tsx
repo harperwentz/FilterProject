@@ -1,26 +1,8 @@
 import { FILTER_ACTION_TYPES } from './filter-types';
 
-// Template for what every category will look like 
-const filterInitialStateTemplate = {
-    category: '',
-    numOptionsSelected: 0,
-    label: '',
-    options: {
-        option1: false,
-        option2: false,
-        option3: false,
-    },
-  };
+import filtersData from '../../sampleData';
 
-
-// make request to algolia inside the reducer called initializeFilters
-// initializing categories
-const filterInitialState = {
-    partners: [{...filterInitialStateTemplate}],
-    skills: [{...filterInitialStateTemplate}],
-    subjects: [{...filterInitialStateTemplate}],
-}
-
+const filterInitialState = filtersData;
 
 const filterReducer = (
     state = filterInitialState, 
@@ -30,36 +12,36 @@ const filterReducer = (
     const { ADD_CATEGORIES, SET_CATEGORY, TOGGLE_OPTION, CLEAR_FORM } = FILTER_ACTION_TYPES;
     
     const { type } = action;
-    
 
     switch (type) {
+        
 
-        case ADD_CATEGORIES: // initialize categories here but only if we request to algolia
-            const { category, initialOptions } = action?.payload;
-            //get the initial options?
+        // case ADD_CATEGORIES: // initialize categories here but only if we request to algolia
+        //     const { category, initialOptions } = action?.payload;
+        //     //get the initial options?
 
-            const optionValues = Object.keys(initialOptions).reduce((options, optionName) => {
-                options[optionName] = false;
-                return options;
-                }, {});
+        //     const optionValues = Object.keys(initialOptions).reduce((options, optionName) => {
+        //         options[optionName] = false;
+        //         return options;
+        //         }, {});
 
-            const newCategoryState = {
-                ...filterInitialState,
-                category,
-                options: {...filterInitialState, ...optionValues},
-            }
-            console.log(newCategoryState);
-            return {
-                ...state,
-                [category]: newCategoryState,
-            };
+        //     const newCategoryState = {
+        //         ...filterInitialState,
+        //         category,
+        //         options: {...filterInitialState, ...optionValues},
+        //     }
+        //     console.log(newCategoryState);
+        //     return {
+        //         ...state,
+        //         [category]: newCategoryState,
+        //     };
 
         case SET_CATEGORY:
-            console.log(category);
+            console.log(action?.payload.category);
             return {
                 ...state, 
-                [category]: {
-                    ...state[category],
+                [action?.payload.category]: {
+                    ...state[action?.payload.category],
                     category: action?.payload.value,
                 }
             };

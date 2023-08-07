@@ -4,15 +4,20 @@ type BooleanObject = {
 
 type SingleFilterType = {
   category: string;
+  categoryLabel: string;
   numOptionsSelected: number;
-  label: string;
   options: BooleanObject;
 };
 
-type AllFiltersType = {
+export type AllFiltersType = {
+  availability: SingleFilterType;
+  level: SingleFilterType;
+  language: SingleFilterType;
   partner: SingleFilterType;
   skill: SingleFilterType;
   subject: SingleFilterType;
+  programType: SingleFilterType;
+  learningType: SingleFilterType;
 };
 
 type ModalType = {
@@ -21,6 +26,6 @@ type ModalType = {
 };
 
 export type FiltersReduxStoreType = {
-  filter: AllFiltersType;
+  filters: AllFiltersType;
   modal: ModalType;
 };

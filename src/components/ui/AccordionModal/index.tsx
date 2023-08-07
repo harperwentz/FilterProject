@@ -4,7 +4,7 @@ import { ModalDialog, Collapsible, ActionRow, Button } from '@edx/paragon';
 type IndividualCollapsibleType = {
   id: string;
   title: string;
-  component: ReactElement;
+  content: ReactElement;
 };
 
 type ModalPropTypes = {
@@ -18,6 +18,8 @@ type ModalPropTypes = {
 
 const AccordionModal = (props: ModalPropTypes) => {
   if (!props.isOpen) return null;
+
+
 
   return (
     <ModalDialog
@@ -51,7 +53,7 @@ const AccordionModal = (props: ModalPropTypes) => {
               </Collapsible.Trigger>
 
               <Collapsible.Body className="collapsible-body">
-                {accordionContent.component}
+                {accordionContent.content}
               </Collapsible.Body>
             </Collapsible.Advanced>
           );
