@@ -1,6 +1,6 @@
 import { useFiltersDispatch, useFiltersSelector } from '../../../hooks/hooks';
 import { toggleOption } from "../../../state/FiltersFormStore/filters/filter-actions";
-import './checkbox.css';
+//import './checkbox.css';
 import { Form } from '@edx/paragon';
 
 interface checkBoxProps {
