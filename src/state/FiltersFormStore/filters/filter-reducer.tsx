@@ -1,36 +1,31 @@
 import { FILTER_ACTION_TYPES } from './filter-types';
+import filtersData from '../../../sampleData';
 
 // Template for what every category will look like 
-const filterInitialStateTemplate = {
+/*const filterInitialStateTemplate = {
     category: '',
     numOptionsSelected: 0,
-    categoryNameText: '',
+    categoryLabel: '',
     options: {
         option1: false,
         option2: false,
         option3: false,
     },
-  };
+};*/
 
 
-// make request to algolia inside the reducer called initializeFilters
-// initializing categories
-const filterInitialState = {
-    partner: {...filterInitialStateTemplate},
-    skills: {...filterInitialStateTemplate},
-    subject: {...filterInitialStateTemplate},
-}
+const filterInitialState = filtersData;
 
 
 const filterReducer = (
-    state = filterInitialState, 
+    state = filterInitialState,
     action
 ) => {
 
     const { ADD_CATEGORIES, SET_CATEGORY, TOGGLE_OPTION, CLEAR_FORM } = FILTER_ACTION_TYPES;
-    
-    const { type } = action;
-    
+
+    const { type, payload } = action;
+
 
     switch (type) {
 
@@ -41,12 +36,12 @@ const filterReducer = (
             const optionValues = Object.keys(initialOptions).reduce((options, optionName) => {
                 options[optionName] = false;
                 return options;
-                }, {});
+            }, {});
 
             const newCategoryState = {
                 ...filterInitialState,
                 category,
-                options: {...filterInitialState, ...optionValues},
+                options: { ...filterInitialState, ...optionValues },
             }
             console.log(newCategoryState);
             return {
@@ -57,7 +52,7 @@ const filterReducer = (
         case SET_CATEGORY:
             console.log(category);
             return {
-                ...state, 
+                ...state,
                 [category]: {
                     ...state[category],
                     category: action?.payload.value,
@@ -81,24 +76,25 @@ const filterReducer = (
             };
 
             // calculate numOptionsSelected for the category (calculate the number of options toggled to true)
-            const numOptionsSelected = Object.values(updatedOptions).filter((value)  => value === true).length;
+            const numOptionsSelected = Object.values(updatedOptions).filter((value) => value === true).length;
             console.log("num options selected ", numOptionsSelected);
             console.log("updated state ", updatedState);
             return {
-                ...updatedState, 
+                ...updatedState,
                 [category]: {
                     ...updatedState[category],
                     numOptionsSelected,
                 },
             };
-        } 
+        }
 
         case CLEAR_FORM:
             return filterInitialState;
-      
-        default: 
+
+
+        default:
             return state;
     }
-  }
+}
 
 export default filterReducer;
