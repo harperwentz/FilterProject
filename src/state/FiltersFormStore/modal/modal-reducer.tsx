@@ -18,7 +18,7 @@ const modalReducer = (
   switch (type) {
 
     case SET_MODAL_CATEGORY:
-      return { ...state, currentCategory: payload };
+      return { ...state, currentCategory: payload.category };
 
     case TOGGLE_MODAL:
       return { ...state, isOpen: !state.isOpen }

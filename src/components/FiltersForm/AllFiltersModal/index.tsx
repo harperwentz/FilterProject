@@ -2,39 +2,58 @@ import React, { ReactElement } from 'react';
 import { useFiltersSelector, useFiltersDispatch } from '../../../hooks/hooks';
 import { toggleModal, setModalCategory } from '../../../state/FiltersFormStore/modal/modal-actions';
 import { addCategories, setCategory, toggleOption, clearForm } from '../../../state/FiltersFormStore/filters/filter-actions';
-import AccordionModal from '../../ui/AccordionModal';
+import Accordion from '../../ui/Accordion';
+import Modal from '../../ui/Modal';
+import InputGroup from '../InputGroup/inputgroup';
 
-type ModalPropTypes = {
-  title: string;
-};
 
-const AllFiltersModal = (props: ModalPropTypes) => {
-  const [currentCategory, setCurrentCategory] = React.useState('filter');
+
+const AllFiltersModal = () => {
+
+  const currentCategory = useFiltersSelector(state => state.modal.currentCategory);
   const isOpen = useFiltersSelector(state => state.modal.isOpen);
   const dispatch = useFiltersDispatch();
+  const AllModalData = useFiltersSelector((state) => state.modal);
+  const AllFiltersData = useFiltersSelector((state) => state.filters);
+  const setNewCategory = (newCategory) => { dispatch(setModalCategory({ category: newCategory })) }
+
+
+
+  const formattedAccordianData = Object.keys(AllFiltersData).map(category => {
+
+    const categoryToCollapse = AllFiltersData[category].category;
+    const displayLabel = AllFiltersData[category].categoryLabel;
+
+
+    const singleAccordian = {
+      categoryToCollapse: categoryToCollapse,
+      displayLabel: displayLabel,
+      component: (<InputGroup
+        category={categoryToCollapse}
+        categoryLabel={displayLabel}
+        options={Object.keys(AllFiltersData[category].options)}
+      />)
+
+    }
+
+    return singleAccordian;
+  })
+
+
 
   return (
-    <AccordionModal
+    <Modal
       isOpen={isOpen}
       onClose={() => {
         dispatch(toggleModal());
         dispatch(clearForm());
       }}
-      modalTitle={props.title}
+      modalTitle="All filters"
       currentlyOpenAccordionID={currentCategory}
-      setOpenAccordionID={setCurrentCategory}
-      accordionContentArray={[
-        {
-          id: 'filter',
-          title: 'Filter 1',
-          component: <div>filter one content</div>,
-        },
-        {
-          id: 'filter2',
-          title: 'Filter 2',
-          component: <div>filter two content</div>,
-        },
-      ]}
+      setOpenAccordionID={setNewCategory} //use setModalCategory dispatch here 
+
+      // map over the data here
+      accordionContentArray={formattedAccordianData}
     />
   );
 };

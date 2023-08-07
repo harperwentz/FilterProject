@@ -3,19 +3,7 @@ import FilterList from "../FilterList/filterlist";
 import { useFiltersSelector, useFiltersDispatch } from "../../../hooks/hooks";
 import { addCategories, setCategory, clearForm } from "../../../state/FiltersFormStore/filters/filter-actions";
 
-/*const FilterList = (props: FilterListDataType) => {
-    //use Form component
 
-    return (
-        <Form onSubmit={event => { event.preventDefault(); }}>
-            {props.filters.map((checkBoxGroupObject: CheckBoxGroupObject): ReactElement =>
-                <InputGroup category={checkBoxGroupObject.category} options={checkBoxGroupObject.options} />)}
-        </Form>
-    )
-
-}
-
-export default FilterList;*/
 
 const AllFilters = () => {
 

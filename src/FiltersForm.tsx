@@ -13,7 +13,7 @@ function App() {
   return (
     <Provider store={store}>
       <OpenModalButton title="Open Modal" />
-      <AllFiltersModal title="All Filters" />
+      <AllFiltersModal />
       <AllFilters />
     </Provider>
   );
