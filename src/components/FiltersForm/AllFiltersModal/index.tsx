@@ -1,15 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useFiltersSelector, useFiltersDispatch } from '../../../hooks/hooks';
-import {
-  toggleModal,
-  setModalCategory,
-} from '../../../state/FiltersFormStore/modal/modal-actions';
-import {
-  addCategories,
-  setCategory,
-  toggleOption,
-  clearForm,
-} from '../../../state/FiltersFormStore/filters/filter-actions';
+import { toggleModal, setModalCategory } from '../../../state/FiltersFormStore/modal/modal-actions';
+import { addCategories, setCategory, toggleOption, clearForm } from '../../../state/FiltersFormStore/filters/filter-actions';
 import AccordionModal from '../../ui/AccordionModal';
 
 type ModalPropTypes = {
@@ -24,8 +16,8 @@ const AllFiltersModal = (props: ModalPropTypes) => {
   return (
     <AccordionModal
       isOpen={isOpen}
-      onClose={() => { 
-        dispatch(toggleModal()); 
+      onClose={() => {
+        dispatch(toggleModal());
         dispatch(clearForm());
       }}
       modalTitle={props.title}
