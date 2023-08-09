@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { Provider } from 'react-redux';
+import { Form } from '@edx/paragon';
 import store from './state/FiltersFormStore/filterform-store';
 import OpenModalButton from './components/FiltersForm/OpenModalButton';
 import AllFiltersModal from './components/FiltersForm/AllFiltersModal';

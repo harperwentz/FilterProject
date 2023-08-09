@@ -30,7 +30,6 @@ const AllFiltersModal = () => {
       displayLabel: displayLabel,
       component: (<InputGroup
         category={categoryToCollapse}
-        categoryLabel={displayLabel}
         options={Object.keys(AllFiltersData[category].options)}
       />)
 
@@ -46,7 +45,6 @@ const AllFiltersModal = () => {
       isOpen={isOpen}
       onClose={() => {
         dispatch(toggleModal());
-        dispatch(clearForm());
       }}
       modalTitle="All filters"
       currentlyOpenAccordionID={currentCategory}

@@ -13,7 +13,7 @@ const modalReducer = (
 ) => {
 
   const { type, payload } = action;
-  const { SET_MODAL_CATEGORY, TOGGLE_MODAL } = MODAL_ACTION_TYPES;
+  const { SET_MODAL_CATEGORY, TOGGLE_MODAL, OPEN_MODAL_TO_CATEGORY } = MODAL_ACTION_TYPES;
 
   switch (type) {
 
@@ -22,6 +22,9 @@ const modalReducer = (
 
     case TOGGLE_MODAL:
       return { ...state, isOpen: !state.isOpen }
+
+    case OPEN_MODAL_TO_CATEGORY:
+      return { ...state, currentCategory: payload.category, isOpen: !state.isOpen }
 
     default:
       return state;

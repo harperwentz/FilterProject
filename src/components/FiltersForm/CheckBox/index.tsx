@@ -8,15 +8,14 @@ interface checkBoxProps {
   option: string;
 }
 
-// Do i need props?
 const Checkbox = (props: checkBoxProps) => {
 
   const dispatch = useFiltersDispatch();
-  const isChecked = useFiltersSelector((state) => state.filters.partner.options?.[props.option]);
-  //console.log("isChecked", isChecked);
+  const isChecked = useFiltersSelector((state) => state.filters[props.category].options?.[props.option]);
+  console.log(`${props.option} is ${isChecked}`);
 
   return (
-    <Form.Checkbox checked={isChecked} onChange={() =>
+    <Form.Checkbox className="w-100" checked={isChecked} onChange={() =>
       dispatch(toggleOption({ category: props.category, option: props.option }))}>
       {props.option}
     </Form.Checkbox>

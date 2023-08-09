@@ -7,17 +7,17 @@ import { Form } from '@edx/paragon';
 
 const InputGroup = (props: CheckBoxGroupObject) => {
 
-    const { category, categoryLabel, options } = props;
+    const { category, categoryLabel, numVisibleCheckboxes, options } = props;
 
     return (
 
-        <Form.CheckboxSet category={category}>
-            <h2><Form.Label>
+        <Form.Group category={category}>
+            {categoryLabel ? (<h2><Form.Label>
                 {categoryLabel}
-            </Form.Label></h2>
+            </Form.Label></h2>) : null}
             {options.map((option: string): ReactElement =>
                 <Checkbox category={category} option={option} />)}
-        </Form.CheckboxSet>
+        </Form.Group>
     )
 
 }

@@ -4,7 +4,8 @@ type SingleCheckbox = {
 
 export type CheckBoxGroupObject = { //inputGroup.tsx
     category: string;
-    categoryLabel: string;
+    categoryLabel?: string;
+    numVisibleCheckboxes?: number;
     options: string[];
 };
 
