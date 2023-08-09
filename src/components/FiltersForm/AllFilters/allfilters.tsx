@@ -7,11 +7,11 @@ import { addCategories, setCategory, clearForm } from "../../../state/FiltersFor
 
 const AllFilters = () => {
 
-    const dispatch = useFiltersDispatch();
+    //const dispatch = useFiltersDispatch();
 
     const AllFiltersData = useFiltersSelector((state) => state.filters);
+    const isOpen = useFiltersSelector((state) => state.modal.isOpen);
 
-    // exampleData = [{category: 'School', options: ['Harvard', 'Princeton', 'Boston University']}, ....]
 
     const formattedFilterData = Object.keys(AllFiltersData).map(category => {
         const singleFilter = {
@@ -23,12 +23,9 @@ const AllFilters = () => {
     })
 
 
-    console.log("AllFiltersProps", AllFiltersData);
-    console.log("FormattedFilterData", formattedFilterData);
-
 
     return (
-        <FilterList filters={formattedFilterData} />
+        <FilterList filters={formattedFilterData} isOpen={isOpen} />
 
     )
 }

@@ -15,9 +15,11 @@ export type AccordionType = {
 
 const Accordion = (props: AccordionType) => {
 
+
   return (
     <>
       {props.accordionContentArray.map(accordionContent => {
+        console.log("Accordian content", accordionContent);
         return (
           <Collapsible.Advanced
             open={accordionContent.categoryToCollapse === props.currentlyOpenAccordionID}

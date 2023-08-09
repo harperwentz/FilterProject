@@ -11,6 +11,7 @@ type ModalPropsType = {
 
 const Modal = (props: ModalPropsType) => {
 
+  console.log("Modal Props.accordian", props.accordionContentArray);
   return (
     <ModalDialog
       title={props.modalTitle}

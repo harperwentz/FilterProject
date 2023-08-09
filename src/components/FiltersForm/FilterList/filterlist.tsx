@@ -5,6 +5,7 @@ import { CheckBoxGroupObject } from "../../../state/FiltersFormStore/types";
 
 export type FilterListPropType = { //array of checkBoxGroup objects
     filters: CheckBoxGroupObject[];
+    isOpen?: boolean;
 }
 
 const FilterList = (props: FilterListPropType) => {
@@ -18,6 +19,7 @@ const FilterList = (props: FilterListPropType) => {
                     categoryLabel={checkBoxGroup.categoryLabel}
                     options={checkBoxGroup.options}
                     numVisibleCheckboxes={2}
+                    isOpen={props.isOpen}
                 />)}
         </Form>
     )

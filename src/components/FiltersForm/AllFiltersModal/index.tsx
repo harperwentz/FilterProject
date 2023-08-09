@@ -21,8 +21,10 @@ const AllFiltersModal = () => {
 
   const formattedAccordianData = Object.keys(AllFiltersData).map(category => {
 
+    // categoryToCollapse
     const categoryToCollapse = AllFiltersData[category].category;
     const displayLabel = AllFiltersData[category].categoryLabel;
+
 
 
     const singleAccordian = {

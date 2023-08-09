@@ -16,14 +16,19 @@ const InputGroup = (props: CheckBoxGroupObject) => {
                 {categoryLabel}
             </Form.Label></h2>) : null}
             {options.map((option: string, index: number): ReactElement => {
-                if (index < numVisibleCheckboxes) {
+                if (!numVisibleCheckboxes) {
+                    return (
+                        <Checkbox category={category} option={option} />
+                    )
+                }
+                else if (index < numVisibleCheckboxes) {
                     return (
                         <Checkbox category={category} option={option} />
                     )
                 }
                 else if (index === numVisibleCheckboxes) {
                     return (
-                        <ShowMoreButton />
+                        <ShowMoreButton category={category} isOpen={props.isOpen} />
                     )
                 }
                 else {

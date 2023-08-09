@@ -12,7 +12,7 @@ const Checkbox = (props: checkBoxProps) => {
 
   const dispatch = useFiltersDispatch();
   const isChecked = useFiltersSelector((state) => state.filters[props.category].options?.[props.option]);
-  console.log(`${props.option} is ${isChecked}`);
+
 
   return (
     <Form.Checkbox className="w-100" checked={isChecked} onChange={() =>

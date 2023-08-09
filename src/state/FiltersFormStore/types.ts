@@ -7,6 +7,7 @@ export type CheckBoxGroupObject = { //inputGroup.tsx
     categoryLabel?: string;
     numVisibleCheckboxes?: number;
     options: string[];
+    isOpen?: boolean;
 };
 
 export type ModalDataObject = {
