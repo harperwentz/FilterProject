@@ -39,6 +39,8 @@ const AllFiltersModal = () => {
   })
 
 
+  console.log("Formatted Accordian Data", formattedAccordianData);
+  console.log("Currently Selected Category", currentCategory);
 
   return (
     <Modal

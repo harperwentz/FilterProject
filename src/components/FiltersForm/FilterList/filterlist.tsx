@@ -17,6 +17,7 @@ const FilterList = (props: FilterListPropType) => {
                     category={checkBoxGroup.category}
                     categoryLabel={checkBoxGroup.categoryLabel}
                     options={checkBoxGroup.options}
+                    numVisibleCheckboxes={2}
                 />)}
         </Form>
     )

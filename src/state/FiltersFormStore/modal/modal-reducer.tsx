@@ -24,7 +24,8 @@ const modalReducer = (
       return { ...state, isOpen: !state.isOpen }
 
     case OPEN_MODAL_TO_CATEGORY:
-      return { ...state, currentCategory: payload.category, isOpen: !state.isOpen }
+      console.log("Payload.category", payload.category);
+      return { ...state, currentCategory: payload.category, isOpen: !payload.isOpen }
 
     default:
       return state;
